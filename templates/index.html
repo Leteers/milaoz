@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artist Gallery</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+        <h1 class="site-title">Artist<br>Portfolio</h1>
+
+        <nav class="menu">
+            <button class="menu-btn">Gallery</button>
+            <button class="menu-btn">About</button>
+            <button class="menu-btn">Contact</button>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+        <div id="gallery" class="gallery"></div>
+    </main>
+
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox hidden">
+    <img id="lightbox-img" src="" alt="" />
+</div>
+
+<script src="js/gallery.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+/* Layout ------------------------------------------------------ */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f3f3;
+    color: #222;
+}
+
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar ------------------------------------------------------ */
+
+.sidebar {
+    width: 220px;
+    background: #ffffff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.site-title {
+    font-size: 1.9rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu-btn {
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 1px solid #aaa;
+    background: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.menu-btn:hover {
+    background: #eee;
+}
+
+/* Main Content ------------------------------------------------ */
+
+.content {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Gallery ------------------------------------------------------ */
+
+.gallery {
+    max-width: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-gap: 15px;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* Lightbox ----------------------------------------------------- */
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.88);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Mobile ------------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+}
