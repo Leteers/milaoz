@@ -193,6 +193,5 @@ async def delete_image(request: Request,payload: dict = Body(...)):
     return {"success": True}
 
 if __name__ == "__main__":
-#    uvicorn.run("main:app", host='0.0.0.0', port=443, reload=True, ssl_keyfile='/etc/letsencrypt/live/akademplast.ru/privkey.pem', ssl_certfile='/etc/letsencrypt/live/akademplast.ru/fullchain.pem')#37.140.192.188
-    uvicorn.run("main:app", host = '0.0.0.0', port = 8003)#37.140.192.188
+    uvicorn.run("main:app", host = '0.0.0.0', port = 8003)
     

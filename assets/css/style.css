@@ -20,6 +20,7 @@ body {
     border-right: 1px solid #ddd;
     padding: 20px;
     box-sizing: border-box;
+    transition: transform 0.3s ease;
 }
 
 .site-title {
@@ -112,8 +113,19 @@ body {
     }
 
     .sidebar {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #ddd;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 1000;
+        background: #fff;
+    }
+
+    .sidebar.hidden {
+        transform: translateX(-100%);
+    }
+
+    .content {
+        margin-left: 0;
     }
 }
