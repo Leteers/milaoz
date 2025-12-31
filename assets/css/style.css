@@ -113,13 +113,11 @@ body {
     }
 
     .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        z-index: 1000;
-        background: #fff;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
     }
+
 
     .sidebar.hidden {
         transform: translateX(-100%);
@@ -129,3 +127,4 @@ body {
         margin-left: 0;
     }
 }
+

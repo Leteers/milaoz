@@ -6,8 +6,8 @@
     <title>Artist Gallery</title>
     <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
 
+<body>
 <div class="layout">
 
     <!-- Left Sidebar -->
@@ -34,5 +34,27 @@
 </div>
 
 <script src="js/gallery.js"></script>
+
+<script>
+let lastScrollY = window.scrollY;
+const sidebar = document.querySelector('.sidebar');
+
+window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+
+    // работаем только на мобильных
+    if (window.innerWidth <= 768) {
+        if (currentScrollY > lastScrollY && currentScrollY > 50) {
+            // скролл вниз — скрываем
+            sidebar.classList.add('hidden');
+        } else {
+            // скролл вверх — показываем
+            sidebar.classList.remove('hidden');
+        }
+    }
+
+    lastScrollY = currentScrollY;
+});
+</script>
 </body>
 </html>
