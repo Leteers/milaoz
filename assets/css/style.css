@@ -50,7 +50,7 @@ body {
 
 .content {
     flex: 1;
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }
 
 /* Gallery ----------------------------------------------------- */
@@ -164,22 +164,19 @@ body {
     z-index: 1000;
 }
 
-/* Mobile */
 @media (max-width: 768px) {
-    .layout {
-        flex-direction: column;
-    }
-
     .sidebar {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        border-bottom: 1px solid #ddd;
-        background: #fff;
         transform: translateY(0);
         transition: transform 0.3s ease;
         z-index: 1000;
+    }
+
+    .sidebar--hidden {
+        transform: translateY(-100%);
     }
 
     .content {
