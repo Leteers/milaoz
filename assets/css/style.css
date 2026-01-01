@@ -1,4 +1,8 @@
-/* Layout ------------------------------------------------------ */
+/* Base -------------------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
@@ -7,20 +11,22 @@ body {
     color: #222;
 }
 
+/* Layout ------------------------------------------------------ */
+
 .layout {
     display: flex;
     height: 100vh;
 }
 
-/* Sidebar ------------------------------------------------------ */
+/* Sidebar ----------------------------------------------------- */
 
 .sidebar {
     width: 220px;
-    background: #ffffff;
+    background: #fff;
     border-right: 1px solid #ddd;
     padding: 20px;
-    box-sizing: border-box;
     transition: transform 0.3s ease;
+    z-index: 1000;
 }
 
 .site-title {
@@ -42,28 +48,28 @@ body {
     background: #fff;
     border-radius: 6px;
     cursor: pointer;
-    transition: background .2s;
+    transition: background 0.2s;
 }
 
 .menu-btn:hover {
     background: #eee;
 }
 
-/* Main Content ------------------------------------------------ */
+/* Content ----------------------------------------------------- */
 
 .content {
     flex: 1;
     overflow-y: auto;
 }
 
-/* Gallery ------------------------------------------------------ */
+/* Gallery ----------------------------------------------------- */
 
 .gallery {
     max-width: 100%;
     margin: 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    grid-gap: 15px;
+    gap: 15px;
     padding: 20px;
 }
 
@@ -80,14 +86,11 @@ body {
     transform: scale(1.03);
 }
 
-/* Lightbox ----------------------------------------------------- */
+/* Lightbox ---------------------------------------------------- */
 
 .lightbox {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: rgba(0, 0, 0, 0.88);
     display: flex;
     justify-content: center;
@@ -101,16 +104,14 @@ body {
     border-radius: 8px;
 }
 
+/* Utility ----------------------------------------------------- */
+
 .hidden {
     display: none;
 }
 
-body {
-    margin: 0;
-    min-height: 200vh; /* чтобы было видно, как снег поднимается */
-}
+/* Snow -------------------------------------------------------- */
 
-/* снежинки */
 .snowflake {
     position: fixed;
     top: -20px;
@@ -126,43 +127,51 @@ body {
     to { transform: translateY(120vh); }
 }
 
-/* сугроб */
 #snow-ground {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 0;
-    z-index: 9999;
-    pointer-events: none;
 }
 
 #snow-path {
-    fill: white;
+    fill: #fff;
     filter: drop-shadow(0 -6px 12px rgba(255,255,255,.8));
 }
 
+#snow-border {
+    fill: none;
+    stroke: #3d87ff;
+    stroke-width: 0.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
 
-/* Mobile ------------------------------------------------------- */
+/* Mobile ------------------------------------------------------ */
 
 @media (max-width: 768px) {
+
     .layout {
         flex-direction: column;
     }
 
     .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
         border-right: none;
         border-bottom: 1px solid #ddd;
+        transform: translateY(-100%);
+        background: #fff;
     }
 
-
-    .sidebar.hidden {
-        transform: translateX(-100%);
+    .sidebar:not(.hidden) {
+        transform: translateY(0);
     }
 
     .content {
-        margin-left: 0;
+        padding-top: 20px;
     }
 }
-
