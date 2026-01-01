@@ -175,17 +175,14 @@ body {
         top: 0;
         left: 0;
         width: 100%;
-        border-right: none;
         border-bottom: 1px solid #ddd;
-        transform: translateY(0); /* visible */
         background: #fff;
-    }
-
-    .sidebar.hidden {
-        transform: translateY(-100%);
+        transform: translateY(0);
+        transition: transform 0.3s ease;
+        z-index: 1000;
     }
 
     .content {
-        padding-top: 80px; /* height of sidebar */
+        padding-top: 80px;
     }
 }

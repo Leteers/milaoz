@@ -124,23 +124,23 @@ function animate(time) {
 requestAnimationFrame(animate);
 </script>
 <script>
-let lastScroll = 0;
 const sidebar = document.querySelector('.sidebar');
+const content = document.querySelector('.content');
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
+let lastScrollTop = 0;
 
-    if (window.innerWidth <= 768) {
-        if (currentScroll > lastScroll && currentScroll > 50) {
-            // scrolling down
-            sidebar.classList.add('hidden');
-        } else {
-            // scrolling up
-            sidebar.classList.remove('hidden');
-        }
+content.addEventListener('scroll', () => {
+    if (window.innerWidth > 768) return;
+
+    const scrollTop = content.scrollTop;
+
+    if (scrollTop > lastScrollTop && scrollTop > 50) {
+        sidebar.classList.add('sidebar--hidden');
+    } else {
+        sidebar.classList.remove('sidebar--hidden');
     }
 
-    lastScroll = currentScroll;
+    lastScrollTop = scrollTop;
 });
 </script>
 
