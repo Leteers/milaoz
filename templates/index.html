@@ -38,31 +38,19 @@
     <path id="snow-path"></path>
     <path id="snow-border"></path>
 </svg>
+<img
+    id="snowman"
+    src="site-images/snowman.svg"
+    alt="Snowman"
+/>
+
 
 
 <script src="js/gallery.js"></script>
 
-<script>
-let lastScrollY = window.scrollY;
-const sidebar = document.querySelector('.sidebar');
 
-window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
 
-    // работаем только на мобильных
-    if (window.innerWidth <= 768) {
-        if (currentScrollY > lastScrollY && currentScrollY > 50) {
-            // скролл вниз — скрываем
-            sidebar.classList.add('hidden');
-        } else {
-            // скролл вверх — показываем
-            sidebar.classList.remove('hidden');
-        }
-    }
 
-    lastScrollY = currentScrollY;
-});
-</script>
 <script>
 const svg = document.getElementById("snow-ground");
 const snowPath = document.getElementById("snow-path");
@@ -106,6 +94,8 @@ function wavePath(height, t) {
     return d;
 }
 
+const snowman = document.getElementById("snowman");
+
 function animate(time) {
     const progress = Math.min((time - start) / duration, 1);
     const height = progress * 100;
@@ -116,10 +106,20 @@ function animate(time) {
     snowPath.setAttribute("d", d);
     snowBorder.setAttribute("d", d);
 
-    if (progress < 0.2) {
+    // snowman positioning
+
+    if (progress < 0.3) {
         requestAnimationFrame(animate);
     }
+    else{
+        snowman.style.visibility = 'visible';
+        if (snowman) {
+            snowman.style.bottom = `calc(${height}vh - 200px)`;
+        }
+
+    }
 }
+
 
 requestAnimationFrame(animate);
 </script>

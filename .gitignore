@@ -3,3 +3,4 @@
 .png
 /data/images.json
 assets/images/
+*.DS_Store

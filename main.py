@@ -31,6 +31,13 @@ templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "./templates"))
 
 
 # Static asset mounts
+
+app.mount(
+    "/site-images",
+    StaticFiles(directory=os.path.join(BASE_DIR, "./assets/site-images")),
+    name="site-images"
+)
+
 app.mount(
     "/css",
     StaticFiles(directory=os.path.join(BASE_DIR, "./assets/css")),
