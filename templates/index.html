@@ -123,6 +123,26 @@ function animate(time) {
 
 requestAnimationFrame(animate);
 </script>
+<script>
+let lastScroll = 0;
+const sidebar = document.querySelector('.sidebar');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (window.innerWidth <= 768) {
+        if (currentScroll > lastScroll && currentScroll > 50) {
+            // scrolling down
+            sidebar.classList.add('hidden');
+        } else {
+            // scrolling up
+            sidebar.classList.remove('hidden');
+        }
+    }
+
+    lastScroll = currentScroll;
+});
+</script>
 
 
 

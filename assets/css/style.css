@@ -18,16 +18,7 @@ body {
     height: 100vh;
 }
 
-/* Sidebar ----------------------------------------------------- */
 
-.sidebar {
-    width: 220px;
-    background: #fff;
-    border-right: 1px solid #ddd;
-    padding: 20px;
-    transition: transform 0.3s ease;
-    z-index: 1000;
-}
 
 .site-title {
     font-size: 1.9rem;
@@ -163,10 +154,18 @@ body {
 }
 
 
-/* Mobile ------------------------------------------------------ */
+/* Desktop */
+.sidebar {
+    width: 220px;
+    background: #fff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
 
+/* Mobile */
 @media (max-width: 768px) {
-
     .layout {
         flex-direction: column;
     }
@@ -178,15 +177,15 @@ body {
         width: 100%;
         border-right: none;
         border-bottom: 1px solid #ddd;
-        transform: translateY(-100%);
+        transform: translateY(0); /* visible */
         background: #fff;
     }
 
-    .sidebar:not(.hidden) {
-        transform: translateY(0);
+    .sidebar.hidden {
+        transform: translateY(-100%);
     }
 
     .content {
-        padding-top: 20px;
+        padding-top: 80px; /* height of sidebar */
     }
 }
