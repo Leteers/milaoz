@@ -107,16 +107,14 @@ function animate(time) {
     snowBorder.setAttribute("d", d);
 
     // snowman positioning
-
+    snowman.style.visibility = 'visible';
+    if (snowman) {
+        snowman.style.bottom = `calc(${height}vh - 200px)`;
+    }
     if (progress < 0.3) {
         requestAnimationFrame(animate);
     }
     else{
-        snowman.style.visibility = 'visible';
-        if (snowman) {
-            snowman.style.bottom = `calc(${height}vh - 200px)`;
-        }
-
     }
 }
 
