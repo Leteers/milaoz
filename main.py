@@ -200,5 +200,5 @@ async def delete_image(request: Request,payload: dict = Body(...)):
     return {"success": True}
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host = '0.0.0.0', port = 8003)
+    uvicorn.run("main:app", host = '0.0.0.0', port = 8003, h11_max_incomplete_event_size=65536)
     
